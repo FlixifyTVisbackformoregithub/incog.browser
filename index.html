@@ -1,22 +1,27 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INCOG Browser</title>
+    <title>Incog Browser</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <input type="text" id="address-bar" placeholder="Enter URL" />
-        <button id="go-button">Go</button>
-        <button id="new-tab">+</button>
+        <button id="go-button" title="Go to URL"><svg class="icon" src="assets/icons/reload.svg"></svg></button>
+        <button id="new-tab" title="New Tab"><svg class="icon" src="assets/icons/plus.svg"></svg></button>
     </header>
     <div id="tab-container">
         <!-- Dynamic tab management -->
     </div>
     <main>
         <iframe id="web-view" src="about:blank"></iframe>
+        <div id="error-page" class="hidden">
+            <h1>Error</h1>
+            <p>Sorry, something went wrong while loading the page.</p>
+        </div>
     </main>
     <script src="renderer.js"></script>
 </body>
