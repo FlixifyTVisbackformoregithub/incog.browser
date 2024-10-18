@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incognito Browser</title>
+    <style>
+        body { margin: 0; }
+        #address-bar { width: 100%; }
+        #web-view { height: calc(100vh - 40px); }
+    </style>
+</head>
+<body>
+    <input type="text" id="address-bar" placeholder="Enter URL" />
+    <button id="go-button">Go</button>
+    <iframe id="web-view"></iframe>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
