@@ -1,16 +1,36 @@
 // renderer.js
 const addressBar = document.getElementById('address-bar');
 const goButton = document.getElementById('go-button');
+const newTabButton = document.getElementById('new-tab');
 const webView = document.getElementById('web-view');
+const tabContainer = document.getElementById('tab-container');
+
+let currentUrl = 'about:blank';
+
+newTabButton.addEventListener('click', addNewTab);
 
 goButton.addEventListener('click', () => {
-    const url = addressBar.value;
-    webView.src = url.startsWith('http') ? url : 'http://' + url;
+    navigateToUrl(addressBar.value);
 });
 
-// Optional: Navigate using 'Enter' key in the address bar
-addressBar.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        goButton.click();
+function navigateToUrl(url) {
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'http://' + url;
     }
-});
+    webView.src = url;
+    currentUrl = url;
+}
+
+function addNewTab() {
+    const tab = document.createElement('div');
+    tab.className = 'tab';
+    tab.innerText = 'New Tab';
+    tab.addEventListener('click', () => {
+        // Logic to switch tabs would go here
+    });
+    tabContainer.appendChild(tab);
+    // Automatically navigate to blank or default URL
+}
+
+// Set an initial URL
+navigateToUrl(currentUrl);
